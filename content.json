@@ -1,0 +1,28 @@
+[
+  {
+    "id": 0,
+    "fileName": "header.h",
+    "functionName": "int f()",
+    "fileContent": "int g(int);\n\nint h(int);\n\nint f();",
+    "missingNoExcepts": [
+      {
+        "lineNumber": 5,
+        "colNumber": 8,
+        "message": "This function can be marked unconditionally no except"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "fileName": "impl.cpp",
+    "functionName": "int f()",
+    "fileContent": "int g(int userInput) { if (userInput) { h(userInput); } return f(); }\n\n#define BSIZE 8 int h(int i) { if (i >= BSIZE) { throw std::out_of_range(\"i >= BSIZE\"); } return B[i]; } }\n\nint f() { return -1; }",
+    "missingNoExcepts": [
+      {
+        "lineNumber": 5,
+        "colNumber": 8,
+        "message": "This function can be marked unconditionally no except"
+      }
+    ]
+  }
+]
